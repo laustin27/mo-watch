@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mo-watch/static/css/main.a617e044.chunk.css",
-    "main.js": "/mo-watch/static/js/main.ec5436ea.chunk.js",
-    "main.js.map": "/mo-watch/static/js/main.ec5436ea.chunk.js.map",
+    "main.js": "/mo-watch/static/js/main.a9385635.chunk.js",
+    "main.js.map": "/mo-watch/static/js/main.a9385635.chunk.js.map",
     "runtime-main.js": "/mo-watch/static/js/runtime-main.d789a25c.js",
     "runtime-main.js.map": "/mo-watch/static/js/runtime-main.d789a25c.js.map",
     "static/js/2.020d1872.chunk.js": "/mo-watch/static/js/2.020d1872.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d789a25c.js",
     "static/js/2.020d1872.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.ec5436ea.chunk.js"
+    "static/js/main.a9385635.chunk.js"
   ]
 }
