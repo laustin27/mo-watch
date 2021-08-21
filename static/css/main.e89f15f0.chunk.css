@@ -1,2 +1,0 @@
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}code{font-family:source-code-pro,Menlo,Monaco,Consolas,"Courier New",monospace}GridContainer{display:grid;grid-template-rows:auto;grid-template-areas:"header" "barkLog" "footer"}header{grid-area:header}BarkLog{grid-area:barkLog}footer{grid-area:footer}
-/*# sourceMappingURL=main.e89f15f0.chunk.css.map */
