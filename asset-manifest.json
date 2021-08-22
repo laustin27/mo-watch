@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/mo-watch/static/css/main.b83aef9a.chunk.css",
-    "main.js": "/mo-watch/static/js/main.b307e42e.chunk.js",
-    "main.js.map": "/mo-watch/static/js/main.b307e42e.chunk.js.map",
+    "main.css": "/mo-watch/static/css/main.738062a0.chunk.css",
+    "main.js": "/mo-watch/static/js/main.86360378.chunk.js",
+    "main.js.map": "/mo-watch/static/js/main.86360378.chunk.js.map",
     "runtime-main.js": "/mo-watch/static/js/runtime-main.3fbdf1ee.js",
     "runtime-main.js.map": "/mo-watch/static/js/runtime-main.3fbdf1ee.js.map",
     "static/js/2.5215742e.chunk.js": "/mo-watch/static/js/2.5215742e.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.50c33f88.chunk.js": "/mo-watch/static/js/3.50c33f88.chunk.js",
     "static/js/3.50c33f88.chunk.js.map": "/mo-watch/static/js/3.50c33f88.chunk.js.map",
     "index.html": "/mo-watch/index.html",
-    "static/css/main.b83aef9a.chunk.css.map": "/mo-watch/static/css/main.b83aef9a.chunk.css.map",
+    "static/css/main.738062a0.chunk.css.map": "/mo-watch/static/css/main.738062a0.chunk.css.map",
     "static/js/2.5215742e.chunk.js.LICENSE.txt": "/mo-watch/static/js/2.5215742e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3fbdf1ee.js",
     "static/js/2.5215742e.chunk.js",
-    "static/css/main.b83aef9a.chunk.css",
-    "static/js/main.b307e42e.chunk.js"
+    "static/css/main.738062a0.chunk.css",
+    "static/js/main.86360378.chunk.js"
   ]
 }
