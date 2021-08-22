@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+html, body {
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.parallax {
+  /* The image used */
+  background-image: url('./MoRun.PNG');
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content-card {
+  background: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  /* grid-area: header; */
+  font-size: 4rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  background-color: #9FEDD7;
 }
 
-.App-link {
-  color: #61dafb;
+.body {
+  top: 80px;
+  bottom: 3rem;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  /* grid-area: footer; */
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  height: 3rem;
+  width: 100%;
 }

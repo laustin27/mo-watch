@@ -1,5 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import BarkLog from './BarkLog';
+import firebase from 'firebase/app'
+import "firebase/database"
+import './App.css'
+import './Button.css'
 
 
 const firebaseConfig = {
@@ -13,19 +17,31 @@ const firebaseConfig = {
   measurementId: "G-TFCK2JPGGG"
 };
 
-function App() {
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
+function App() {
   const [testValue, setTestValue] = React.useState();
 
-  const test = firebase.database().ref().child('object');
+  firebase.database()
+  .ref("/object")
+  .get()
+  .then(snap => setTestValue(snap.val()));
 
-  test.on('value', snap => setTestValue(snap.val()));
+  function clear() {
+    alert('clear coming soon');
+  }
 
   return (
-    <span>{testValue}</span>
+    <div className="container">
+      <header>Mo-Watch</header>
+      <div className="body">
+        <BarkLog />
+      </div>
+      <footer>
+        <button onClick={clear} className="primary">Clear</button>
+      </footer>
+    </div>
   );
 }
 

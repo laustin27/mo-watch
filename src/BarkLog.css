@@ -1,0 +1,7 @@
+.bark-log-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 100%;
+    overflow-y: scroll;
+}
