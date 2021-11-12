@@ -33,24 +33,29 @@ function App() {
     }
   );
 
-  function clear() {
-    alert('clear coming soon');
-  }
+  const [values, loading, error] = useListVals(props.firebase.database().ref("/NoiseEvents"));
+  const [summary, setSummary] = React.useState();
 
+  React.useEffect(() => {
+
+  }, [values]);
   return (
     <body>
       <header>
         {/* <img src={headerImg} /> */}
-        <span style={{marginTop: '0.5rem'}}>Mo Watch</span>
-      </header>
-      <div className="body">
+        {/* <span style={{marginTop: '0.5rem'}}>Mo Watch</span> */}
         { value &&
-          <span style={{textAlign: 'center', fontSize: '0.75rem', paddingTop: '0.5rem', paddingBottom: '0.5rem'}}>
+          <span>
             {`Device last started on ${value.toLocaleDateString('en-US', dateOptions)} at ${value.toLocaleTimeString('en-US')}`}
           </span>
         }
-        <NoiseEventList firebase={firebase}/>
+      </header>
+      <div className="body">
+        <NoiseEventList values={values} loading={loading} error={error}/>
       </div>
+      <footer>
+        
+      </footer>
     </body>
   );
 }

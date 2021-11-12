@@ -21,24 +21,22 @@ function formatTime(data) {
 }
 
 function NoiseEventList(props) {
-  const [values, loading, error] = useListVals(props.firebase.database().ref("/NoiseEvents"));
-
   let content;
-  if (error) {
+  if (props.error) {
     content = 
       <div className="message-container">
         <FontAwesomeIcon icon={faFrown} className="big-icon"/>
         <h1>Something went wrong</h1>
       </div>
-  } else if (loading) {
+  } else if (props.loading) {
     content = 
       <div className="message-container">
         <img src={moBounce} style={{height: '70px', width: '70px'}}></img>
         <h2 style={{marginTop: '0'}}>Loading...</h2>
       </div>
-  } else if (values && values.length > 0) {
+  } else if (props.values && props.values.length > 0) {
     content = 
-      values?.map((noiseEvent, index) => { 
+      props.values?.map((noiseEvent, index) => { 
         const volume = noiseEvent.LoudNoiseHappened == 1 
                         ? 'loud' 
                         : (
@@ -58,7 +56,7 @@ function NoiseEventList(props) {
           />
         )
       });
-  } else if (values.length == 0) {
+  } else if (props.values.length == 0) {
     content = 
       <div className="message-container">
         <FontAwesomeIcon icon={faSmileBeam} className="big-icon"/>
@@ -75,7 +73,7 @@ function NoiseEventList(props) {
   }
 
   return (
-    <div class="noise-event-list-container">
+    <div>
       { content }
     </div>
   );

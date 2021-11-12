@@ -1,11 +1,3 @@
-.noise-event-list-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-height: 100%;
-    overflow-y: scroll;
-}
-
 .message-container {
     display: flex;
     flex-direction: column;
