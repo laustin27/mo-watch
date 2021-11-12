@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/mo-watch/static/css/main.42d0238a.chunk.css",
-    "main.js": "/mo-watch/static/js/main.5726eda7.chunk.js",
-    "main.js.map": "/mo-watch/static/js/main.5726eda7.chunk.js.map",
+    "main.js": "/mo-watch/static/js/main.5f46d9be.chunk.js",
+    "main.js.map": "/mo-watch/static/js/main.5f46d9be.chunk.js.map",
     "runtime-main.js": "/mo-watch/static/js/runtime-main.9d26bc4e.js",
     "runtime-main.js.map": "/mo-watch/static/js/runtime-main.9d26bc4e.js.map",
-    "static/js/2.66dd5716.chunk.js": "/mo-watch/static/js/2.66dd5716.chunk.js",
-    "static/js/2.66dd5716.chunk.js.map": "/mo-watch/static/js/2.66dd5716.chunk.js.map",
+    "static/js/2.75306ec4.chunk.js": "/mo-watch/static/js/2.75306ec4.chunk.js",
+    "static/js/2.75306ec4.chunk.js.map": "/mo-watch/static/js/2.75306ec4.chunk.js.map",
     "static/js/3.2e794dab.chunk.js": "/mo-watch/static/js/3.2e794dab.chunk.js",
     "static/js/3.2e794dab.chunk.js.map": "/mo-watch/static/js/3.2e794dab.chunk.js.map",
     "index.html": "/mo-watch/index.html",
     "static/css/main.42d0238a.chunk.css.map": "/mo-watch/static/css/main.42d0238a.chunk.css.map",
-    "static/js/2.66dd5716.chunk.js.LICENSE.txt": "/mo-watch/static/js/2.66dd5716.chunk.js.LICENSE.txt",
+    "static/js/2.75306ec4.chunk.js.LICENSE.txt": "/mo-watch/static/js/2.75306ec4.chunk.js.LICENSE.txt",
     "static/media/moBounce2.b228a1dc.gif": "/mo-watch/static/media/moBounce2.b228a1dc.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.9d26bc4e.js",
-    "static/js/2.66dd5716.chunk.js",
+    "static/js/2.75306ec4.chunk.js",
     "static/css/main.42d0238a.chunk.css",
-    "static/js/main.5726eda7.chunk.js"
+    "static/js/main.5f46d9be.chunk.js"
   ]
 }
