@@ -3,7 +3,7 @@ button {
     display: inline-block;
     font-weight: 400;
     cursor:pointer;
-    width: 100%;
+    width: 50%;
     height: 3rem;
     white-space: nowrap;
     vertical-align: middle;
@@ -13,9 +13,10 @@ button {
     user-select: none;
     border: 1px solid transparent;
     padding: .375rem .75rem;
-    font-size: 1rem;
-    border-top-right-radius : 0.25rem;
-    border-top-left-radius : 0.25rem;
+    font-size: 1rem;;
+    border-radius : 0.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
   

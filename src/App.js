@@ -1,9 +1,12 @@
 import React from 'react'
-import BarkLog from './BarkLog';
+import NoiseEventList from './NoiseEventList';
 import firebase from 'firebase/app'
 import "firebase/database"
 import './App.css'
 import './Button.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { useObjectVal } from 'react-firebase-hooks/database';
 
 
 const firebaseConfig = {
@@ -20,28 +23,40 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-function App() {
-  const [testValue, setTestValue] = React.useState();
+const dateOptions = {year: 'numeric', month: 'long', day: 'numeric' };
 
-  firebase.database()
-  .ref("/object")
-  .get()
-  .then(snap => setTestValue(snap.val()));
+function App() {
+  const [value, loading, error] = useObjectVal(
+    firebase.database().ref("/StartTime"),
+    {
+      transform: (val) => (new Date(val))
+    }
+  );
 
   function clear() {
     alert('clear coming soon');
   }
 
   return (
-    <div className="container">
-      <header>Mo-Watch</header>
+    <body>
+      <header>
+        {/* <img src={headerImg} /> */}
+        <span style={{marginTop: '0.5rem'}}>Mo Watch</span>
+      </header>
       <div className="body">
-        <BarkLog />
+        { value &&
+          <span style={{textAlign: 'center', fontSize: '0.75rem', paddingTop: '0.5rem', paddingBottom: '0.5rem'}}>
+            {`Device last started on ${value.toLocaleDateString('en-US', dateOptions)} at ${value.toLocaleTimeString('en-US')}`}
+          </span>
+        }
+        <NoiseEventList firebase={firebase}/>
       </div>
       <footer>
-        <button onClick={clear} className="primary">Clear</button>
+        <button onClick={clear} className="primary">
+          <FontAwesomeIcon icon={faTrashAlt} style={{paddingRight: '8px'}} />Clear
+          </button>
       </footer>
-    </div>
+    </body>
   );
 }
 

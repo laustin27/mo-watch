@@ -1,41 +1,29 @@
 html, body {
   height: 100%;
-}
-
-.parallax {
-  /* The image used */
-  background-image: url('./MoRun.PNG');
-
-  /* Set a specific height */
-  min-height: 500px; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.content-card {
-  background: white;
+  font-family: 'arial', sans-serif;
+  overflow: hidden;
 }
 
 header {
   /* grid-area: header; */
-  font-size: 4rem;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   position: absolute;
   top: 0;
-  height: 80px;
+  height: 55px;
   width: 100%;
-  background-color: #9FEDD7;
+  box-shadow: 0px 0px 6px 0 #000;
+  /* background-color: #9FEDD7; */
 }
 
 .body {
-  top: 80px;
-  bottom: 3rem;
+  position: absolute;
+  top: 60px;
+  bottom: 5rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
@@ -44,6 +32,8 @@ footer {
   justify-content: center;
   position: absolute;
   bottom: 0;
-  height: 3rem;
+  height: 5rem;
   width: 100%;
+  box-shadow: inset 0px 0px 6px 0 #000;
+  /* border-top: 1px solid grey; */
 }
