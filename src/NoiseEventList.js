@@ -79,4 +79,4 @@ function NoiseEventList(props) {
   );
 }
 
-export default NoiseEventList;
+export {formatTime, NoiseEventList}
