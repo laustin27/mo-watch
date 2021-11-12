@@ -51,11 +51,6 @@ function App() {
         }
         <NoiseEventList firebase={firebase}/>
       </div>
-      <footer>
-        <button onClick={clear} className="primary">
-          <FontAwesomeIcon icon={faTrashAlt} style={{paddingRight: '8px'}} />Clear
-          </button>
-      </footer>
     </body>
   );
 }
