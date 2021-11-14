@@ -8,7 +8,9 @@ import { useObjectVal } from 'react-firebase-hooks/database';
 import Collapsible from 'react-collapsible';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import {formatTime, NoiseEventList} from './NoiseEventList';
+import {NoiseEventList} from './NoiseEventList';
+import {formatTime, getTimeDifference} from './date-utils'
+import { useStopwatch } from 'react-timer-hook';
 
 
 const firebaseConfig = {
@@ -48,11 +50,22 @@ function App() {
   const [summary, setSummary] = React.useState();
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
+  const {
+    seconds,
+    minutes,
+    hours,
+    days,
+    reset
+  } = useStopwatch({ 
+      autoStart: true
+  });
+
   React.useEffect(() => {
     let quietBarks  = 0;
     let mediumBarks = 0;
     let loudBarks   = 0;
-    let firstBarkTime = null;
+    let firstBarkTimeMinutes = null;
+    let firstBarkTimeSeconds = null;
 
     if (values?.length > 0) {
       values?.map((noiseEvent, index) => { 
@@ -67,7 +80,16 @@ function App() {
         }
 
         if (index == 0) {
-          firstBarkTime = formatTime(noiseEvent.StartTimestampMinute) + ':' + formatTime(noiseEvent.StartTimestampSecond);
+          firstBarkTimeMinutes = formatTime(noiseEvent.NoiseTimestampMinute);
+          firstBarkTimeSeconds = formatTime(noiseEvent.NoiseTimestampSecond);
+        }
+
+        if (index == values.length - 1) {
+          const noiseEventDate = getTimeDifference(value, noiseEvent.NoiseTimestampMinute, noiseEvent.NoiseTimestampSecond);
+
+          const millisSinceLastBark = new Date().getTime() - noiseEventDate.getTime();
+
+          reset(new Date(new Date().getTime() + millisSinceLastBark));
         }
       });
 
@@ -75,17 +97,24 @@ function App() {
         quietBarks: quietBarks,
         mediumBarks: mediumBarks,
         loudBarks: loudBarks,
-        firstBarkTime: firstBarkTime
+        firstBarkTimeMinutes: firstBarkTimeMinutes,
+        firstBarkTimeSeconds: firstBarkTimeSeconds
       });
     }
   }, [values]);
+
   return (
     <body>
       <header>
         { value &&
-          <span>
-            {`Device last started on ${value.toLocaleDateString('en-US', dateOptions)} at ${value.toLocaleTimeString('en-US')}`}
-          </span>
+          <>
+            <div>
+              {`Device started on ${value.toLocaleDateString('en-US', dateOptions)} at ${value.toLocaleTimeString('en-US')}`}
+            </div>
+            <div>It has been 
+              {days ? days + ' days, ' : ''} {hours ? hours + ' hours, ' : ''} {minutes ? minutes + (minutes == 1 ? ' minute' : ' minutes') + ' and ' : ''} {seconds ? seconds + ' seconds' : ''} since last bark
+            </div>
+          </>
         }
       </header>
       {
@@ -94,11 +123,14 @@ function App() {
             <p>Baby Barks: {summary.quietBarks}</p>
             <p>Barks: {summary.mediumBarks}</p>
             <p>Big Boy Barks: {summary.loudBarks}</p>
-            <p>First noise detected after {summary.firstBarkTime}</p>
+            <p>First noise detected after 
+              {' ' + summary.firstBarkTimeMinutes + (summary.firstBarkTimeMinutes == 1 ? ' minute' : ' minutes')} and 
+              {' ' + summary.firstBarkTimeSeconds} seconds
+            </p>
         </Collapsible>
       }
       <div className="body">
-        <NoiseEventList values={values} loading={loading} error={error}/>
+        <NoiseEventList values={values} loading={loading} error={error} startTime={value}/>
       </div>
     </body>
   );

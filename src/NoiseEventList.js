@@ -5,20 +5,7 @@ import NoiseEvent from './NoiseEvent.js'
 import { faSmileBeam, faFrown, faHourglass, faQuestion } from '@fortawesome/free-solid-svg-icons'
 import { useListVals } from 'react-firebase-hooks/database';
 import moBounce from './moBounce2.gif'
-
-function formatTime(data) {
-  let dataString = data.toString();
-
-  if (dataString) {
-    if (dataString.length == 1) {
-      return '0' + dataString;
-    }
-
-    return dataString;
-  }
-
-  return null;
-}
+import {formatTime} from './date-utils'
 
 function NoiseEventList(props) {
   let content;
@@ -50,9 +37,9 @@ function NoiseEventList(props) {
           <NoiseEvent 
             key = {index}
             volume={volume}
-            startTime={formatTime(noiseEvent.StartTimestampMinute) + ':' + formatTime(noiseEvent.StartTimestampSecond)}
-            endTime={formatTime(noiseEvent.EndTimestampMinute) + ':' + formatTime(noiseEvent.EndTimestampSecond)}
-            duration={formatTime(noiseEvent.DurationMinutes) + ':' + formatTime(noiseEvent.DurationSeconds)}
+            timestampMinutes={formatTime(noiseEvent.NoiseTimestampMinute)}
+            timestampSeconds={formatTime(noiseEvent.NoiseTimestampSecond)}
+            startTime={props.startTime}
           />
         )
       });
@@ -79,4 +66,4 @@ function NoiseEventList(props) {
   );
 }
 
-export {formatTime, NoiseEventList}
+export {NoiseEventList}

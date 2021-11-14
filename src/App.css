@@ -1,4 +1,4 @@
-html, body {
+body {
   height: 100vh;
   font-family: 'verdana', sans-serif;
   overflow: hidden;
@@ -12,6 +12,8 @@ header {
   /* grid-area: header; */
   font-size: 0.75rem;
   display: flex;
+  flex-direction: column;
+  gap: 15px;
   justify-content: center;
   align-items: center;
   height: 12vh;
