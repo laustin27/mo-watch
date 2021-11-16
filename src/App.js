@@ -111,9 +111,12 @@ function App() {
             <div>
               {`Device started on ${value.toLocaleDateString('en-US', dateOptions)} at ${value.toLocaleTimeString('en-US')}`}
             </div>
-            <div>It has been 
-              {days ? days + ' days, ' : ''} {hours ? hours + ' hours, ' : ''} {minutes ? minutes + (minutes == 1 ? ' minute' : ' minutes') + ' and ' : ''} {seconds ? seconds + ' seconds' : ''} since last bark
-            </div>
+            {
+              values.length > 0 &&
+              <div>It has been 
+                {days ? days + ' days, ' : ''} {hours ? hours + ' hours, ' : ''} {minutes ? minutes + (minutes == 1 ? ' minute' : ' minutes') + ' and ' : ''} {seconds ? seconds : 0} seconds since last bark
+              </div>
+            }
           </>
         }
       </header>
